@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="styleable_elemento_texto">
+        <attr name="texto_texto_valor" format="string"></attr>
+        <attr name="texto_hint_valor" format="string"></attr>
+        <attr name="texto_texto_titulo" format="string"></attr>
+        <attr name="texto_habilitado" format="boolean"></attr>
+        <attr name="texto_habilitado_valor" format="boolean"></attr>
+        <attr name="texto_habilitado_titulo" format="boolean"></attr>
+        <attr name="texto_visible" format="boolean"></attr>
+        <attr name="texto_visible_valor" format="boolean"></attr>
+        <attr name="texto_visible_titulo" format="boolean"></attr>
+        <attr name="texto_divider_visible" format="boolean"></attr>
+        <attr name="texto_color_fondo" format="color"></attr>
+        <attr name="texto_color_fondo_titulo" format="color"></attr>
+        <attr name="texto_color_fondo_valor" format="color"></attr>
+        <attr name="texto_color_divider" format="color"></attr>
+        <attr name="texto_color_titulo" format="color"></attr>
+        <attr name="texto_color_valor" format="color"></attr>
+        <attr name="texto_tamano_titulo" format="dimension"></attr>
+        <attr name="texto_tamano_valor" format="dimension"></attr>
+        <attr name="texto_ancho_titulo" format="float"></attr>
+        <attr name="texto_ancho_valor" format="float"></attr>
+    </declare-styleable>
+    <declare-styleable name="styleable_elemento_combo">
+        <attr name="spinner_texto_titulo" format="string"></attr>
+        <attr name="spinner_habilitado" format="boolean"></attr>
+        <attr name="spinner_habilitado_valor" format="boolean"></attr>
+        <attr name="spinner_habilitado_titulo" format="boolean"></attr>
+        <attr name="spinner_visible" format="boolean"></attr>
+        <attr name="spinner_visible_valor" format="boolean"></attr>
+        <attr name="spinner_visible_titulo" format="boolean"></attr>
+        <attr name="spinner_divider_visible" format="boolean"></attr>
+        <attr name="spinner_color_fondo" format="color"></attr>
+        <attr name="spinner_color_fondo_titulo" format="color"></attr>
+        <attr name="spinner_color_fondo_valor" format="color"></attr>
+        <attr name="spinner_color_divider" format="color"></attr>
+        <attr name="spinner_color_titulo" format="color"></attr>
+        <attr name="spinner_color_valor" format="color"></attr>
+        <attr name="spinner_tamano_titulo" format="dimension"></attr>
+        <attr name="spinner_ancho_titulo" format="float"></attr>
+        <attr name="spinner_ancho_valor" format="float"></attr>
+    </declare-styleable>
+    <declare-styleable name="styleable_elemento_switch">
+        <attr name="switch_texto_titulo" format="string"></attr>
+        <attr name="switch_texto_positivo" format="string"></attr>
+        <attr name="switch_texto_negativo" format="string"></attr>
+        <attr name="switch_habilitado" format="boolean"></attr>
+        <attr name="switch_habilitado_valor" format="boolean"></attr>
+        <attr name="switch_habilitado_titulo" format="boolean"></attr>
+        <attr name="switch_chequeado" format="boolean"></attr>
+        <attr name="switch_visible" format="boolean"></attr>
+        <attr name="switch_visible_valor" format="boolean"></attr>
+        <attr name="switch_visible_titulo" format="boolean"></attr>
+        <attr name="switch_divider_visible" format="boolean"></attr>
+        <attr name="switch_color_fondo" format="color"></attr>
+        <attr name="switch_color_fondo_titulo" format="color"></attr>
+        <attr name="switch_color_fondo_valor" format="color"></attr>
+        <attr name="switch_color_divider" format="color"></attr>
+        <attr name="switch_color_titulo" format="color"></attr>
+        <attr name="switch_color_valor" format="color"></attr>
+        <attr name="switch_tamano_titulo" format="dimension"></attr>
+        <attr name="switch_tamano_valor" format="dimension"></attr>
+        <attr name="switch_ancho_titulo" format="float"></attr>
+        <attr name="switch_ancho_valor" format="float"></attr>
+    </declare-styleable>
+    <declare-styleable name="styleable_elemento_radio">
+        <attr name="radio_texto_titulo" format="string"></attr>
+        <attr name="radio_texto_radio1" format="string"></attr>
+        <attr name="radio_texto_radio2" format="string"></attr>
+        <attr name="radio_habilitado" format="boolean"></attr>
+        <attr name="radio_habilitado_valor" format="boolean"></attr>
+        <attr name="radio_habilitado_titulo" format="boolean"></attr>
+        <attr name="radio_chequeado1" format="boolean"></attr>
+        <attr name="radio_visible" format="boolean"></attr>
+        <attr name="radio_visible_valor" format="boolean"></attr>
+        <attr name="radio_visible_titulo" format="boolean"></attr>
+        <attr name="radio_divider_visible" format="boolean"></attr>
+        <attr name="radio_color_fondo" format="color"></attr>
+        <attr name="radio_color_fondo_titulo" format="color"></attr>
+        <attr name="radio_color_fondo_valor" format="color"></attr>
+        <attr name="radio_color_divider" format="color"></attr>
+        <attr name="radio_color_titulo" format="color"></attr>
+        <attr name="radio_color_valor" format="color"></attr>
+        <attr name="radio_tamano_titulo" format="dimension"></attr>
+        <attr name="radio_tamano_valor" format="dimension"></attr>
+        <attr name="radio_ancho_titulo" format="float"></attr>
+        <attr name="radio_ancho_valor" format="float"></attr>
+    </declare-styleable>
+    <declare-styleable name="styleable_elemento_custom">
+        <attr name="custom_texto_titulo" format="string"></attr>
+        <attr name="custom_habilitado" format="boolean"></attr>
+        <attr name="custom_habilitado_valor" format="boolean"></attr>
+        <attr name="custom_habilitado_titulo" format="boolean"></attr>
+        <attr name="custom_visible" format="boolean"></attr>
+        <attr name="custom_visible_valor" format="boolean"></attr>
+        <attr name="custom_visible_titulo" format="boolean"></attr>
+        <attr name="custom_divider_visible" format="boolean"></attr>
+        <attr name="custom_color_fondo" format="color"></attr>
+        <attr name="custom_color_fondo_titulo" format="color"></attr>
+        <attr name="custom_color_fondo_valor" format="color"></attr>
+        <attr name="custom_color_divider" format="color"></attr>
+        <attr name="custom_color_titulo" format="color"></attr>
+        <attr name="custom_tamano_titulo" format="dimension"></attr>
+        <attr name="custom_ancho_titulo" format="float"></attr>
+        <attr name="custom_ancho_valor" format="float"></attr>
+    </declare-styleable>
+    <declare-styleable name="styleable_elemento_header">
+        <attr name="header_texto" format="string"></attr>
+        <attr name="header_texto_center" format="boolean"></attr>
+        <attr name="header_texto_bold" format="boolean"></attr>
+        <attr name="header_texto_fondo" format="color"></attr>
+        <attr name="header_visible" format="boolean"></attr>
+        <attr name="header_visible_titulo" format="boolean"></attr>
+        <attr name="header_color_fondo" format="color"></attr>
+        <attr name="header_color_titulo" format="color"></attr>
+        <attr name="header_tamano_titulo" format="dimension"></attr>
+    </declare-styleable>
+</resources>

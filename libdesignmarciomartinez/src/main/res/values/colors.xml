@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorHeaderFondoMM">#DDDDDD</color>
+    <color name="colorHeaderTextoMM">#000000</color>
+    <color name="colorElementoFondoMM">#FFFFFF</color>
+    <color name="colorElementoTituloMM">#222222</color>
+    <color name="colorElementoValorMM">#000000</color>
+    <color name="colorDividerMM">#DDDDDD</color>
+</resources>

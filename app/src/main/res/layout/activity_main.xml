@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoHeader
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:header_texto_center="true"
+       app:header_texto="Hola este"
+       app:header_visible="true"
+       app:header_texto_bold="false">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoHeader>
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoCustom
+       android:id="@+id/c"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:custom_texto_titulo="Estadios:"
+       >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+         <Button
+             android:id="@+id/btn1"
+             android:text="da1"
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="match_parent" />
+         <Button
+             android:id="@+id/btn2"
+             android:text="dadada"
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content" />
+      </LinearLayout>
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoCustom>
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoRadio
+       android:id="@+id/ra"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:radio_texto_titulo="Estadios:"
+       app:radio_texto_radio1="Esquema"
+       app:radio_texto_radio2="Javac"
+       >
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoRadio>
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoSwitch
+       android:id="@+id/chk"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:switch_texto_titulo="Estado:"
+       app:switch_texto_positivo="Si"
+       app:switch_texto_negativo="No"
+       >
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoSwitch>
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoSpinner
+       android:id="@+id/spi"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:spinner_texto_titulo="Paises:"
+       app:spinner_divider_visible="false"
+       >
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoSpinner>
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoContrasena
+       android:id="@+id/contra"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor="Ridmin admd"
+       app:texto_texto_titulo="Personal Info"
+
+       >
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoContrasena>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTexto
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor="sa"
+       app:texto_texto_titulo="sas">
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTexto>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoNumero
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoNumero>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha
+       android:id="@+id/fecha"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoTiempo
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoTiempo>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFechaTiempo
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFechaTiempo>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletable
+       android:id="@+id/combo"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletable>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoTodoMayuscula
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoTodoMayuscula>
+</LinearLayout>

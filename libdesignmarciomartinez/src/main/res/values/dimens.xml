@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="headerTextoTamanoMM">15sp</dimen>
+    <dimen name="elementTextoTituloTamanoMM">14sp</dimen>
+    <dimen name="elementTextValorTamanoMM">13sp</dimen>
+    <integer name="elementoTextoTituloPesoMM">2</integer>
+    <integer name="elementoTextoValorPesoMM">3</integer>
+</resources>
