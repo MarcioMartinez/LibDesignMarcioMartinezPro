@@ -105,10 +105,10 @@ public class ElementoSpinner extends ElementoBase {
         txtTitulo.setVisibility(mVisibleTitulo ? VISIBLE : GONE);
         txtTitulo.setEnabled(mHabilitadoTitulo);
 
-        setOnClickListener(new View.OnClickListener() {
+        txtTitulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cboValor.requestFocus();
+                cboValor.performClick();
             }
         });
     }
