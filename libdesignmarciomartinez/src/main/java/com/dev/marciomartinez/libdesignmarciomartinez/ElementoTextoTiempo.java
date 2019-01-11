@@ -96,4 +96,52 @@ public class ElementoTextoTiempo extends ElementoTexto {
             throw new RuntimeException("Time format is not correct: " + e.getMessage());
         }
     }
+
+    public void resetear(){
+        habilitarEscritura(false);
+        txtValor.setFocusableInTouchMode(false);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+
+        setFormatoTiempo("KK:mm a");
+
+        mTimerPickerDialog = new TimePickerDialog(mContext,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        mCalendarCurrentDate.set(Calendar.HOUR, i);
+                        mCalendarCurrentDate.set(Calendar.MINUTE, i1);
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat2, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue);
+                        if (escuchadorValorCambio != null){
+                            escuchadorValorCambio.OnValorCambio(newValue);
+                        }
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.HOUR),
+                mCalendarCurrentDate.get(Calendar.MINUTE),
+                false);
+
+        txtTitulo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTimerPickerDialog.show();
+            }
+        });
+
+        txtValor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTimerPickerDialog.show();
+            }
+        });
+
+        setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTimerPickerDialog.show();
+            }
+        });
+    }
 }

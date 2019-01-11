@@ -169,4 +169,90 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
             throw new RuntimeException("Time format is not correct: " + e.getMessage());
         }
     }
+
+    public void resetear(){
+
+        habilitarEscritura(false);
+        txtValor.setFocusableInTouchMode(false);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+
+        setFormatoFecha("yyyy-MM-dd");
+
+        mDatePickerDialog = new DatePickerDialog(mContext,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        mCalendarCurrentDate.set(Calendar.YEAR, year);
+                        mCalendarCurrentDate.set(Calendar.MONTH, monthOfYear);
+                        mCalendarCurrentDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        if (dateFormat.trim().equals("")){
+                            dateFormat = "yyyy-MM-dd";
+                        }
+
+                        if (dateFormat2.trim().equals("")){
+                            dateFormat2 = " KK:mm a";
+                        }
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue);
+
+                        mTimerPickerDialog.show();
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.YEAR),
+                mCalendarCurrentDate.get(Calendar.MONTH),
+                mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));
+
+
+        mTimerPickerDialog = new TimePickerDialog(mContext,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        mCalendarCurrentDate.set(Calendar.HOUR, i);
+                        mCalendarCurrentDate.set(Calendar.MINUTE, i1);
+
+                        if (dateFormat.trim().equals("")){
+                            dateFormat = "yyyy-MM-dd";
+                        }
+
+                        if (dateFormat2.trim().equals("")){
+                            dateFormat2 = " KK:mm a";
+                        }
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue.trim());
+                        if (escuchadorValorCambio != null){
+                            escuchadorValorCambio.OnValorCambio(newValue);
+                        }
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.HOUR),
+                mCalendarCurrentDate.get(Calendar.MINUTE),
+                false);
+
+
+        txtTitulo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+
+        txtValor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+
+        setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+    }
 }

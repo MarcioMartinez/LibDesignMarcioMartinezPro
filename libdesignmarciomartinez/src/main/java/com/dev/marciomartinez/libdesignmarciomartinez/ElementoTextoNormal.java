@@ -48,4 +48,9 @@ public class ElementoTextoNormal extends ElementoTexto {
     public void setValor(Object mValor) {
         this.mValor = mValor;
     }
+
+    @Override
+    public Object getValor() {
+        return super.getValor() != null ? super.getValor() : "" ;
+    }
 }

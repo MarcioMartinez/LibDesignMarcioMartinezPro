@@ -98,4 +98,53 @@ public class ElementoTextoFecha extends ElementoTexto {
             throw new RuntimeException("Date format is not correct: " + e.getMessage());
         }
     }
+
+    public void resetear(){
+        habilitarEscritura(false);
+        txtValor.setFocusableInTouchMode(false);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+
+        setFormatoFecha("yyyy-MM-dd");
+
+        mDatePickerDialog = new DatePickerDialog(mContext,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        mCalendarCurrentDate.set(Calendar.YEAR, year);
+                        mCalendarCurrentDate.set(Calendar.MONTH, monthOfYear);
+                        mCalendarCurrentDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue);
+                        if (escuchadorValorCambio != null){
+                            escuchadorValorCambio.OnValorCambio(newValue);
+                        }
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.YEAR),
+                mCalendarCurrentDate.get(Calendar.MONTH),
+                mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));
+
+        txtTitulo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+
+        txtValor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+
+        setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatePickerDialog.show();
+            }
+        });
+    }
 }
