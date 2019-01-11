@@ -46,8 +46,13 @@ public class ElementoTextoNormal extends ElementoTexto {
 
     @Override
     public void setValor(Object mValor) {
-        this.mValor = mValor;
+       txtValor.setText(mValor.toString().trim());
     }
+
+    public void limpiar() {
+        txtValor.setText("");
+    }
+
 
     @Override
     public Object getValor() {
