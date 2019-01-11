@@ -1,4 +1,4 @@
-# LibDesignMarcioMartinezPro 2019 (JAVA)
+# LibDesignMarcioMartinez 2019 (JAVA)
 Esta es una librería desarrollada con el fin de agilizar el diseño y programación de aplicaciones móviles nativas de android, con una agradable interfaz en cada vista, fue desarrollada por Marcio Martinez
 
 # Implementación:
