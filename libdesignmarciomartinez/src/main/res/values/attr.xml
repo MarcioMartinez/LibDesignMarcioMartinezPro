@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="styleable_elemento_texto">
+    <declare-styleable name="ElementoTexto">
         <attr name="texto_texto_valor" format="string"></attr>
         <attr name="texto_hint_valor" format="string"></attr>
         <attr name="texto_texto_titulo" format="string"></attr>

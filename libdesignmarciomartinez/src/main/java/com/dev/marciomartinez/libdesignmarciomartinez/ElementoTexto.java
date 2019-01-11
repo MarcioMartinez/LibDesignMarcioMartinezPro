@@ -39,29 +39,29 @@ public class ElementoTexto extends ElementoBase {
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.styleable_elemento_texto, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ElementoTexto, 0, 0);
 
         try {
-            mValor = a.getString(R.styleable.styleable_elemento_texto_texto_texto_valor);
-            mTitulo = a.getString(R.styleable.styleable_elemento_texto_texto_texto_titulo);
-            mHint = a.getString(R.styleable.styleable_elemento_texto_texto_hint_valor);
-            mVisible = a.getBoolean(R.styleable.styleable_elemento_texto_texto_visible, true);
-            mVisibleValor = a.getBoolean(R.styleable.styleable_elemento_texto_texto_visible_valor, true);
-            mVisibleTitulo = a.getBoolean(R.styleable.styleable_elemento_texto_texto_visible_titulo, true);
-            mHabilitado = a.getBoolean(R.styleable.styleable_elemento_texto_texto_habilitado, true);
-            mHabilitadoValor = a.getBoolean(R.styleable.styleable_elemento_texto_texto_habilitado_valor, true);
-            mHabilitadoTitulo = a.getBoolean(R.styleable.styleable_elemento_texto_texto_habilitado_titulo, true);
-            mDividerVisible = a.getBoolean(R.styleable.styleable_elemento_texto_texto_divider_visible, true);
-            mColorFondo = a.getColor(R.styleable.styleable_elemento_texto_texto_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoTitulo = a.getColor(R.styleable.styleable_elemento_texto_texto_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoValor = a.getColor(R.styleable.styleable_elemento_texto_texto_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorDivider = a.getColor(R.styleable.styleable_elemento_texto_texto_color_divider, getResources().getColor(R.color.colorDividerMM));
-            mColorTitulo = a.getColor(R.styleable.styleable_elemento_texto_texto_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
-            mColorValor = a.getColor(R.styleable.styleable_elemento_texto_texto_color_valor, getResources().getColor(R.color.colorElementoValorMM));
-            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.styleable_elemento_texto_texto_tamano_titulo, 0);
-            mTamanoValor = a.getDimensionPixelSize(R.styleable.styleable_elemento_texto_texto_tamano_valor, 0);
-            mAnchoTitulo = a.getFloat(R.styleable.styleable_elemento_texto_texto_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
-            mAnchoValor = a.getFloat(R.styleable.styleable_elemento_texto_texto_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
+            mValor = a.getString(R.styleable.ElementoTexto_texto_texto_valor);
+            mTitulo = a.getString(R.styleable.ElementoTexto_texto_texto_titulo);
+            mHint = a.getString(R.styleable.ElementoTexto_texto_hint_valor);
+            mVisible = a.getBoolean(R.styleable.ElementoTexto_texto_visible, true);
+            mVisibleValor = a.getBoolean(R.styleable.ElementoTexto_texto_visible_valor, true);
+            mVisibleTitulo = a.getBoolean(R.styleable.ElementoTexto_texto_visible_titulo, true);
+            mHabilitado = a.getBoolean(R.styleable.ElementoTexto_texto_habilitado, true);
+            mHabilitadoValor = a.getBoolean(R.styleable.ElementoTexto_texto_habilitado_valor, true);
+            mHabilitadoTitulo = a.getBoolean(R.styleable.ElementoTexto_texto_habilitado_titulo, true);
+            mDividerVisible = a.getBoolean(R.styleable.ElementoTexto_texto_divider_visible, true);
+            mColorFondo = a.getColor(R.styleable.ElementoTexto_texto_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoTitulo = a.getColor(R.styleable.ElementoTexto_texto_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoValor = a.getColor(R.styleable.ElementoTexto_texto_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorDivider = a.getColor(R.styleable.ElementoTexto_texto_color_divider, getResources().getColor(R.color.colorDividerMM));
+            mColorTitulo = a.getColor(R.styleable.ElementoTexto_texto_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
+            mColorValor = a.getColor(R.styleable.ElementoTexto_texto_color_valor, getResources().getColor(R.color.colorElementoValorMM));
+            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.ElementoTexto_texto_tamano_titulo, 0);
+            mTamanoValor = a.getDimensionPixelSize(R.styleable.ElementoTexto_texto_tamano_valor, 0);
+            mAnchoTitulo = a.getFloat(R.styleable.ElementoTexto_texto_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
+            mAnchoValor = a.getFloat(R.styleable.ElementoTexto_texto_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
         } finally {
             a.recycle();
         }
