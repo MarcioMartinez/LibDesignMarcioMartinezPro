@@ -34,7 +34,7 @@ public class ElementoTextoNormal extends ElementoTexto {
                 if (escuchadorValorCambio != null){
                     escuchadorValorCambio.OnValorCambio(charSequence.toString().trim());
                 }
-                setValor(charSequence.toString().trim());
+                mValor = charSequence.toString().trim();
             }
 
             @Override
