@@ -15,14 +15,14 @@ allprojects {
   ### Paso 2. Añadir la dependencia.
 ```
 dependencies {
-	 implementation 'com.github.MarcioMartinez:LibDesignMarcioMartinezPro:Tag'
+	implementation 'com.github.MarcioMartinez:LibDesignMarcioMartinezPro:Tag'
 }
 ```
   #### Nota: 
   Tag = última versión de la librería
   
   ### Ejemplos:
-  #### La librería cuenta con mas de 25 Vistas de diferentes funcionalidades, algunas de ellas:
+  #### La librería cuenta con mas de 25 Vistas con diferentes funcionalidades, algunas de ellas:
 ```
 <com.dev.marciomartinez.libdesignmarciomartinez.ElementoHeader
       android:layout_width="match_parent"
