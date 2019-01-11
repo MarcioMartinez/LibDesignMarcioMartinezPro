@@ -57,7 +57,7 @@ public class ElementoHeader extends ElementoBase {
 
 
         setVisibility(mVisible ? VISIBLE : GONE);
-        setBackgroundColor(mColorFondo);
+        findViewById(R.id.id_fondoHeader).setBackgroundColor(mColorFondo);
         setEnabled(mHabilitado);
 
         txtTitulo = findViewById(R.id.id_titulo_elemento);
