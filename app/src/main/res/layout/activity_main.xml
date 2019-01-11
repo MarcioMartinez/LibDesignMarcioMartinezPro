@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha>
+
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoHeader
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

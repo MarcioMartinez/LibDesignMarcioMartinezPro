@@ -43,26 +43,26 @@ public class ElementoSpinner extends ElementoBase {
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.styleable_elemento_combo, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ElementoSpinner, 0, 0);
 
         try {
-            mTitulo = a.getString(R.styleable.styleable_elemento_combo_spinner_texto_titulo);
-            mVisible = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_visible, true);
-            mVisibleValor = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_visible_valor, true);
-            mVisibleTitulo = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_visible_titulo, true);
-            mHabilitado = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_habilitado, true);
-            mHabilitadoValor = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_habilitado_valor, true);
-            mHabilitadoTitulo = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_habilitado_titulo, true);
-            mDividerVisible = a.getBoolean(R.styleable.styleable_elemento_combo_spinner_divider_visible, true);
-            mColorFondo = a.getColor(R.styleable.styleable_elemento_combo_spinner_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoTitulo = a.getColor(R.styleable.styleable_elemento_combo_spinner_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoValor = a.getColor(R.styleable.styleable_elemento_combo_spinner_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorDivider = a.getColor(R.styleable.styleable_elemento_combo_spinner_color_divider, getResources().getColor(R.color.colorDividerMM));
-            mColorTitulo = a.getColor(R.styleable.styleable_elemento_combo_spinner_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
-            mColorValor = a.getColor(R.styleable.styleable_elemento_combo_spinner_color_valor, getResources().getColor(R.color.colorElementoValorMM));
-            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.styleable_elemento_combo_spinner_tamano_titulo, 0);
-            mAnchoTitulo = a.getFloat(R.styleable.styleable_elemento_combo_spinner_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
-            mAnchoValor = a.getFloat(R.styleable.styleable_elemento_combo_spinner_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
+            mTitulo = a.getString(R.styleable.ElementoSpinner_spinner_texto_titulo);
+            mVisible = a.getBoolean(R.styleable.ElementoSpinner_spinner_visible, true);
+            mVisibleValor = a.getBoolean(R.styleable.ElementoSpinner_spinner_visible_valor, true);
+            mVisibleTitulo = a.getBoolean(R.styleable.ElementoSpinner_spinner_visible_titulo, true);
+            mHabilitado = a.getBoolean(R.styleable.ElementoSpinner_spinner_habilitado, true);
+            mHabilitadoValor = a.getBoolean(R.styleable.ElementoSpinner_spinner_habilitado_valor, true);
+            mHabilitadoTitulo = a.getBoolean(R.styleable.ElementoSpinner_spinner_habilitado_titulo, true);
+            mDividerVisible = a.getBoolean(R.styleable.ElementoSpinner_spinner_divider_visible, true);
+            mColorFondo = a.getColor(R.styleable.ElementoSpinner_spinner_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoTitulo = a.getColor(R.styleable.ElementoSpinner_spinner_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoValor = a.getColor(R.styleable.ElementoSpinner_spinner_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorDivider = a.getColor(R.styleable.ElementoSpinner_spinner_color_divider, getResources().getColor(R.color.colorDividerMM));
+            mColorTitulo = a.getColor(R.styleable.ElementoSpinner_spinner_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
+            mColorValor = a.getColor(R.styleable.ElementoSpinner_spinner_color_valor, getResources().getColor(R.color.colorElementoValorMM));
+            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.ElementoSpinner_spinner_tamano_titulo, 0);
+            mAnchoTitulo = a.getFloat(R.styleable.ElementoSpinner_spinner_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
+            mAnchoValor = a.getFloat(R.styleable.ElementoSpinner_spinner_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
         } finally {
             a.recycle();
         }

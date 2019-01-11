@@ -37,30 +37,30 @@ public class ElementoRadio extends ElementoBase {
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.styleable_elemento_radio, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ElementoRadio, 0, 0);
 
         try {
-            mTextoRadio1 = a.getString(R.styleable.styleable_elemento_radio_radio_texto_radio1);
-            mTextoRadio2 = a.getString(R.styleable.styleable_elemento_radio_radio_texto_radio2);
-            mTitulo = a.getString(R.styleable.styleable_elemento_radio_radio_texto_titulo);
-            mVisible = a.getBoolean(R.styleable.styleable_elemento_radio_radio_visible, true);
-            chequeado = a.getBoolean(R.styleable.styleable_elemento_radio_radio_chequeado1, true);
-            mVisibleValor = a.getBoolean(R.styleable.styleable_elemento_radio_radio_visible_valor, true);
-            mVisibleTitulo = a.getBoolean(R.styleable.styleable_elemento_radio_radio_visible_titulo, true);
-            mHabilitado = a.getBoolean(R.styleable.styleable_elemento_radio_radio_habilitado, true);
-            mHabilitadoValor = a.getBoolean(R.styleable.styleable_elemento_radio_radio_habilitado_valor, true);
-            mHabilitadoTitulo = a.getBoolean(R.styleable.styleable_elemento_radio_radio_habilitado_titulo, true);
-            mDividerVisible = a.getBoolean(R.styleable.styleable_elemento_radio_radio_divider_visible, true);
-            mColorFondo = a.getColor(R.styleable.styleable_elemento_radio_radio_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoTitulo = a.getColor(R.styleable.styleable_elemento_radio_radio_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoValor = a.getColor(R.styleable.styleable_elemento_radio_radio_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorDivider = a.getColor(R.styleable.styleable_elemento_radio_radio_color_divider, getResources().getColor(R.color.colorDividerMM));
-            mColorTitulo = a.getColor(R.styleable.styleable_elemento_radio_radio_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
-            mColorValor = a.getColor(R.styleable.styleable_elemento_radio_radio_color_valor, getResources().getColor(R.color.colorElementoValorMM));
-            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.styleable_elemento_radio_radio_tamano_titulo, 0);
-            mTamanoValor = a.getDimensionPixelSize(R.styleable.styleable_elemento_radio_radio_tamano_valor, 0);
-            mAnchoTitulo = a.getFloat(R.styleable.styleable_elemento_radio_radio_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
-            mAnchoValor = a.getFloat(R.styleable.styleable_elemento_radio_radio_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
+            mTextoRadio1 = a.getString(R.styleable.ElementoRadio_radio_texto_radio1);
+            mTextoRadio2 = a.getString(R.styleable.ElementoRadio_radio_texto_radio2);
+            mTitulo = a.getString(R.styleable.ElementoRadio_radio_texto_titulo);
+            mVisible = a.getBoolean(R.styleable.ElementoRadio_radio_visible, true);
+            chequeado = a.getBoolean(R.styleable.ElementoRadio_radio_chequeado1, true);
+            mVisibleValor = a.getBoolean(R.styleable.ElementoRadio_radio_visible_valor, true);
+            mVisibleTitulo = a.getBoolean(R.styleable.ElementoRadio_radio_visible_titulo, true);
+            mHabilitado = a.getBoolean(R.styleable.ElementoRadio_radio_habilitado, true);
+            mHabilitadoValor = a.getBoolean(R.styleable.ElementoRadio_radio_habilitado_valor, true);
+            mHabilitadoTitulo = a.getBoolean(R.styleable.ElementoRadio_radio_habilitado_titulo, true);
+            mDividerVisible = a.getBoolean(R.styleable.ElementoRadio_radio_divider_visible, true);
+            mColorFondo = a.getColor(R.styleable.ElementoRadio_radio_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoTitulo = a.getColor(R.styleable.ElementoRadio_radio_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoValor = a.getColor(R.styleable.ElementoRadio_radio_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorDivider = a.getColor(R.styleable.ElementoRadio_radio_color_divider, getResources().getColor(R.color.colorDividerMM));
+            mColorTitulo = a.getColor(R.styleable.ElementoRadio_radio_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
+            mColorValor = a.getColor(R.styleable.ElementoRadio_radio_color_valor, getResources().getColor(R.color.colorElementoValorMM));
+            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.ElementoRadio_radio_tamano_titulo, 0);
+            mTamanoValor = a.getDimensionPixelSize(R.styleable.ElementoRadio_radio_tamano_valor, 0);
+            mAnchoTitulo = a.getFloat(R.styleable.ElementoRadio_radio_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
+            mAnchoValor = a.getFloat(R.styleable.ElementoRadio_radio_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
         } finally {
             a.recycle();
         }

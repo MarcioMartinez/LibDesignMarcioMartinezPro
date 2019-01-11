@@ -36,18 +36,18 @@ public class ElementoHeader extends ElementoBase {
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.styleable_elemento_header, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ElementoHeader, 0, 0);
 
         try {
-            mTitulo = a.getString(R.styleable.styleable_elemento_header_header_texto);
-            mVisible = a.getBoolean(R.styleable.styleable_elemento_header_header_visible, true);
-            mVisibleTitulo = a.getBoolean(R.styleable.styleable_elemento_header_header_visible_titulo, true);
-            mColorFondo = a.getColor(R.styleable.styleable_elemento_header_header_color_fondo, getResources().getColor(R.color.colorHeaderFondoMM));
-            mColorFondoTitulo = a.getColor(R.styleable.styleable_elemento_header_header_texto_fondo, getResources().getColor(R.color.colorHeaderFondoMM));
-            mColorTitulo = a.getColor(R.styleable.styleable_elemento_header_header_color_titulo, getResources().getColor(R.color.colorHeaderTextoMM));
-            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.styleable_elemento_header_header_tamano_titulo, 0);
-            mCenter = a.getBoolean(R.styleable.styleable_elemento_header_header_texto_center, false);
-            mBold = a.getBoolean(R.styleable.styleable_elemento_header_header_texto_bold, false);
+            mTitulo = a.getString(R.styleable.ElementoHeader_header_texto);
+            mVisible = a.getBoolean(R.styleable.ElementoHeader_header_visible, true);
+            mVisibleTitulo = a.getBoolean(R.styleable.ElementoHeader_header_visible_titulo, true);
+            mColorFondo = a.getColor(R.styleable.ElementoHeader_header_color_fondo, getResources().getColor(R.color.colorHeaderFondoMM));
+            mColorFondoTitulo = a.getColor(R.styleable.ElementoHeader_header_texto_fondo, getResources().getColor(R.color.colorHeaderFondoMM));
+            mColorTitulo = a.getColor(R.styleable.ElementoHeader_header_color_titulo, getResources().getColor(R.color.colorHeaderTextoMM));
+            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.ElementoHeader_header_tamano_titulo, 0);
+            mCenter = a.getBoolean(R.styleable.ElementoHeader_header_texto_center, false);
+            mBold = a.getBoolean(R.styleable.ElementoHeader_header_texto_bold, false);
         } finally {
             a.recycle();
         }

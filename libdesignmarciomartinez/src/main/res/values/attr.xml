@@ -22,7 +22,7 @@
         <attr name="texto_ancho_titulo" format="float"></attr>
         <attr name="texto_ancho_valor" format="float"></attr>
     </declare-styleable>
-    <declare-styleable name="styleable_elemento_combo">
+    <declare-styleable name="ElementoSpinner">
         <attr name="spinner_texto_titulo" format="string"></attr>
         <attr name="spinner_habilitado" format="boolean"></attr>
         <attr name="spinner_habilitado_valor" format="boolean"></attr>
@@ -41,7 +41,7 @@
         <attr name="spinner_ancho_titulo" format="float"></attr>
         <attr name="spinner_ancho_valor" format="float"></attr>
     </declare-styleable>
-    <declare-styleable name="styleable_elemento_switch">
+    <declare-styleable name="ElementoSwitch">
         <attr name="switch_texto_titulo" format="string"></attr>
         <attr name="switch_texto_positivo" format="string"></attr>
         <attr name="switch_texto_negativo" format="string"></attr>
@@ -64,7 +64,7 @@
         <attr name="switch_ancho_titulo" format="float"></attr>
         <attr name="switch_ancho_valor" format="float"></attr>
     </declare-styleable>
-    <declare-styleable name="styleable_elemento_radio">
+    <declare-styleable name="ElementoRadio">
         <attr name="radio_texto_titulo" format="string"></attr>
         <attr name="radio_texto_radio1" format="string"></attr>
         <attr name="radio_texto_radio2" format="string"></attr>
@@ -87,7 +87,7 @@
         <attr name="radio_ancho_titulo" format="float"></attr>
         <attr name="radio_ancho_valor" format="float"></attr>
     </declare-styleable>
-    <declare-styleable name="styleable_elemento_custom">
+    <declare-styleable name="ElementoCustom">
         <attr name="custom_texto_titulo" format="string"></attr>
         <attr name="custom_habilitado" format="boolean"></attr>
         <attr name="custom_habilitado_valor" format="boolean"></attr>
@@ -105,7 +105,7 @@
         <attr name="custom_ancho_titulo" format="float"></attr>
         <attr name="custom_ancho_valor" format="float"></attr>
     </declare-styleable>
-    <declare-styleable name="styleable_elemento_header">
+    <declare-styleable name="ElementoHeader">
         <attr name="header_texto" format="string"></attr>
         <attr name="header_texto_center" format="boolean"></attr>
         <attr name="header_texto_bold" format="boolean"></attr>
