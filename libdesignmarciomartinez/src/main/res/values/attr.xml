@@ -22,6 +22,29 @@
         <attr name="texto_ancho_titulo" format="float"></attr>
         <attr name="texto_ancho_valor" format="float"></attr>
     </declare-styleable>
+    <declare-styleable name="ElementoTextoMask">
+        <attr name="mask_mascara" format="string"></attr>
+        <attr name="mask_texto_valor" format="string"></attr>
+        <attr name="mask_hint_valor" format="string"></attr>
+        <attr name="mask_texto_titulo" format="string"></attr>
+        <attr name="mask_habilitado" format="boolean"></attr>
+        <attr name="mask_habilitado_valor" format="boolean"></attr>
+        <attr name="mask_habilitado_titulo" format="boolean"></attr>
+        <attr name="mask_visible" format="boolean"></attr>
+        <attr name="mask_visible_valor" format="boolean"></attr>
+        <attr name="mask_visible_titulo" format="boolean"></attr>
+        <attr name="mask_divider_visible" format="boolean"></attr>
+        <attr name="mask_color_fondo" format="color"></attr>
+        <attr name="mask_color_fondo_titulo" format="color"></attr>
+        <attr name="mask_color_fondo_valor" format="color"></attr>
+        <attr name="mask_color_divider" format="color"></attr>
+        <attr name="mask_color_titulo" format="color"></attr>
+        <attr name="mask_color_valor" format="color"></attr>
+        <attr name="mask_tamano_titulo" format="dimension"></attr>
+        <attr name="mask_tamano_valor" format="dimension"></attr>
+        <attr name="mask_ancho_titulo" format="float"></attr>
+        <attr name="mask_ancho_valor" format="float"></attr>
+    </declare-styleable>
     <declare-styleable name="ElementoSpinner">
         <attr name="spinner_texto_titulo" format="string"></attr>
         <attr name="spinner_habilitado" format="boolean"></attr>

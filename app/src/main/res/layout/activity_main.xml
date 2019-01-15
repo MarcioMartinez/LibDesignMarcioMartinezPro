@@ -8,6 +8,15 @@
     tools:context=".MainActivity">
 
 
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoMask
+       android:id="@+id/mk"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:mask_texto_titulo="dsasda"
+       app:mask_mascara="(504)####-####"
+       ></com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoMask>
+
+
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoFirma
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

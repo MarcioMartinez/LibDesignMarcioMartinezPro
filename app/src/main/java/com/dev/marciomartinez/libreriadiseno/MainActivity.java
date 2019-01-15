@@ -21,6 +21,7 @@ import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoComboAlert;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoComboMultiAlert;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoContrasena;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha;
+import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoMask;
 import com.dev.marciomartinez.libdesignmarciomartinez.EscuchadorValorCambio;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         f.setCodigoSolicitud(100);
 
 
-
+        ElementoTextoMask mk = findViewById(R.id.mk);
         ElementoRadio r = findViewById(R.id.ra);
         ElementoSwitch es = findViewById(R.id.chk);
         ElementoTextoAutoCompletable e = findViewById(R.id.combo);
@@ -59,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         e.setListadoConstruir(x, 1, R.layout.support_simple_spinner_dropdown_item);
         e4.setListadoConstruir(x, android.R.layout.simple_list_item_1);
         e4.setElemento(4);
+
+        mk.setOnValorCambio(new EscuchadorValorCambio() {
+            @Override
+            public void OnValorCambio(Object valor) {
+                Toast.makeText(getApplicationContext(), valor.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         e.setOnValorCambio(new EscuchadorValorCambio() {
             @Override
