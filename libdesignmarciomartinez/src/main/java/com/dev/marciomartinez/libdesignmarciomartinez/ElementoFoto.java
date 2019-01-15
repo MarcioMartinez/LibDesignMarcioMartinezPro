@@ -150,6 +150,18 @@ public class ElementoFoto extends ElementoBase {
         txtTitulo.setVisibility(mVisibleTitulo ? VISIBLE : GONE);
         txtTitulo.setEnabled(mHabilitadoTitulo);
 
+        if (textoTomar != null){
+            btnTomar.setText(textoTomar);
+        }
+
+        if (textoSeleccionar != null){
+            btnSeleccionar.setText(textoSeleccionar);
+        }
+
+        if (textoNinguna != null){
+            btnNinguna.setText(textoNinguna);
+        }
+
         if (foto != null){
             imgFoto.setImageDrawable(foto);
         }
