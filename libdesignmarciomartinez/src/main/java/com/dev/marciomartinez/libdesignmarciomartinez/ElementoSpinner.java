@@ -201,10 +201,10 @@ public class ElementoSpinner extends ElementoBase {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (cboValor.getSelectedItem() != null){
+                    setValor(adapterView.getItemAtPosition(i));
                     if (escuchadorValorCambio != null){
                         escuchadorValorCambio.OnValorCambio(listado.get(i));
                     }
-                    setValor(adapterView.getItemAtPosition(i));
                 }
             }
 

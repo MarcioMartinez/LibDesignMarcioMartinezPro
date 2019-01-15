@@ -44,10 +44,10 @@ public class ElementoTextoAutoCompletable extends ElementoTexto {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (!txtValor.getText().toString().trim().equals("")){
+                    setValor(listado.get(i));
                     if (escuchadorValorCambio != null){
                         escuchadorValorCambio.OnValorCambio(listado.get(i));
                     }
-                    setValor(listado.get(i));
                 }
             }
         });
@@ -69,10 +69,10 @@ public class ElementoTextoAutoCompletable extends ElementoTexto {
     public void setElemento(int indice){
         if (this.listado.size() > 0){
             txtValor.setSelection(indice);
+            setValor(listado.get(indice));
             if (escuchadorValorCambio != null){
                 escuchadorValorCambio.OnValorCambio(listado.get(indice));
             }
-            setValor(listado.get(indice));
         }
     }
 }

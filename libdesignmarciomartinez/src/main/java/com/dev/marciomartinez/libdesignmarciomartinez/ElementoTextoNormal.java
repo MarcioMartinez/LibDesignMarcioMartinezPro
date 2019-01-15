@@ -31,10 +31,10 @@ public class ElementoTextoNormal extends ElementoTexto {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mValor = charSequence.toString().trim();
                 if (escuchadorValorCambio != null){
                     escuchadorValorCambio.OnValorCambio(charSequence.toString().trim());
                 }
-                mValor = charSequence.toString().trim();
             }
 
             @Override
