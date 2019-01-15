@@ -116,4 +116,47 @@
         <attr name="header_color_titulo" format="color"></attr>
         <attr name="header_tamano_titulo" format="dimension"></attr>
     </declare-styleable>
+    <declare-styleable name="ElementoFoto">
+        <attr name="foto_texto_ninguna" format="string"></attr>
+        <attr name="foto_texto_seleccionar" format="string"></attr>
+        <attr name="foto_texto_tomar" format="string"></attr>
+        <attr name="foto_foto_valor" format="integer"></attr>
+        <attr name="foto_foto_boton_ninguno" format="integer"></attr>
+        <attr name="foto_foto_boton_seleccionar" format="integer"></attr>
+        <attr name="foto_foto_boton_tomar" format="integer"></attr>
+        <attr name="foto_texto_titulo" format="string"></attr>
+        <attr name="foto_habilitado" format="boolean"></attr>
+        <attr name="foto_habilitado_valor" format="boolean"></attr>
+        <attr name="foto_zoom_foto" format="boolean"></attr>
+        <attr name="foto_habilitado_titulo" format="boolean"></attr>
+        <attr name="foto_visible" format="boolean"></attr>
+        <attr name="foto_visible_valor" format="boolean"></attr>
+        <attr name="foto_visible_titulo" format="boolean"></attr>
+        <attr name="foto_divider_visible" format="boolean"></attr>
+        <attr name="foto_color_fondo" format="color"></attr>
+        <attr name="foto_color_fondo_titulo" format="color"></attr>
+        <attr name="foto_color_fondo_valor" format="color"></attr>
+        <attr name="foto_color_divider" format="color"></attr>
+        <attr name="foto_color_titulo" format="color"></attr>
+        <attr name="foto_tamano_titulo" format="dimension"></attr>
+        <attr name="foto_ancho_titulo" format="float"></attr>
+        <attr name="foto_ancho_valor" format="float"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="ElementoFirma">
+        <attr name="firma_texto_titulo" format="string"></attr>
+        <attr name="firma_habilitado" format="boolean"></attr>
+        <attr name="firma_habilitado_valor" format="boolean"></attr>
+        <attr name="firma_habilitado_titulo" format="boolean"></attr>
+        <attr name="firma_visible" format="boolean"></attr>
+        <attr name="firma_visible_valor" format="boolean"></attr>
+        <attr name="firma_visible_titulo" format="boolean"></attr>
+        <attr name="firma_divider_visible" format="boolean"></attr>
+        <attr name="firma_color_fondo" format="color"></attr>
+        <attr name="firma_color_fondo_titulo" format="color"></attr>
+        <attr name="firma_color_fondo_valor" format="color"></attr>
+        <attr name="firma_color_divider" format="color"></attr>
+        <attr name="firma_color_titulo" format="color"></attr>
+        <attr name="firma_tamano_titulo" format="dimension"></attr>
+    </declare-styleable>
 </resources>

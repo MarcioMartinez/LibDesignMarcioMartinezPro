@@ -34,4 +34,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation ('com.github.chrisbanes:PhotoView:1.2.6'){
+        exclude group: 'com.android.support'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
+    implementation ('com.github.gcacace:signature-pad:1.2.1'){
+        exclude group: 'com.android.support'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
 }

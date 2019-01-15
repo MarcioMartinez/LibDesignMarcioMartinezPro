@@ -7,6 +7,41 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoFirma
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:firma_texto_titulo="fotddo:"
+
+       >
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoFirma>
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoFirma
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:firma_texto_titulo="fotddo:"
+       >
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoFirma>
+
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoFoto
+       android:id="@+id/foto"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:foto_texto_titulo="foto:"
+       >
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoFoto>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoFoto
+       android:visibility="gone"
+       android:id="@+id/foto2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:foto_texto_titulo="foto:"
+       app:foto_zoom_foto="false"
+       >
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoFoto>
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
