@@ -20,6 +20,7 @@ import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletab
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoComboAlert;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoComboMultiAlert;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoContrasena;
+import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoCoordenadas;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFecha;
 import com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoMask;
 import com.dev.marciomartinez.libdesignmarciomartinez.EscuchadorValorCambio;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> x = new ArrayList<>();
     ElementoFoto f;
     ElementoFoto f2;
+    ElementoTextoCoordenadas cor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         f = findViewById(R.id.foto);
+        cor = findViewById(R.id.cor);
+        cor.setCodigoSolicitud(600);
         f.setCodigoSolicitud(100);
 
 
@@ -140,5 +144,6 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         f.metodoOnRequestPermissionsResult(requestCode, permissions, grantResults);
         f2.metodoOnRequestPermissionsResult(requestCode, permissions, grantResults);
+        cor.metodoOnRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

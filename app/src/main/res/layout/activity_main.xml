@@ -8,6 +8,20 @@
     tools:context=".MainActivity">
 
 
+
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoCoordenadas
+       android:id="@+id/cor"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:coordenadas_texto_titulo="dsdsd"
+       ></com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoCoordenadas>
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoContrasena
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:contrasena_texto_titulo="dsdsds"
+       app:contrasena_texto_valor="sasasa"
+       ></com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoContrasena>
+
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoMask
        android:id="@+id/mk"
        android:layout_width="match_parent"
@@ -36,6 +50,7 @@
 
 
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoFoto
+       android:visibility="gone"
        android:id="@+id/foto"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

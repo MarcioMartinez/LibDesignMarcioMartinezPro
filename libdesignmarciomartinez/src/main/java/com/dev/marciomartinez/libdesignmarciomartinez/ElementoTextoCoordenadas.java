@@ -1,11 +1,15 @@
 package com.dev.marciomartinez.libdesignmarciomartinez;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.KeyListener;
 import android.text.method.PasswordTransformationMethod;
@@ -18,77 +22,78 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import im.delight.android.location.SimpleLocation;
 
-
-public class ElementoTextoContrasena extends ElementoBase {
-
-    //  txtValor.setRawInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD|InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-    //  txtValor.setTransformationMethod(new PasswordTransformationMethod());
-    //  txtValor.setTransformationMethod(null);
+public class ElementoTextoCoordenadas extends ElementoBase {
 
     protected AutoCompleteTextView txtValor;
     protected TextView txtTitulo;
     protected LinearLayout contenedor, contenedorValor;
-    protected ImageView elementoOjo;
+    protected ImageView elementoIcono;
     protected View divider;
     protected KeyListener mKeyListerner;
-    protected boolean ojoVisible, activo = false;
-    protected Drawable iconoOjo;
+    protected boolean iconoVisible;
+    protected Drawable iconoMapa;
+    protected String latitud = "", longitud = "", coordenadas = "";
 
-    public ElementoTextoContrasena(Context context) {
+
+    private SimpleLocation location;
+    
+    
+    public ElementoTextoCoordenadas(Context context) {
         super(context);
     }
 
-    public ElementoTextoContrasena(Context context, @Nullable AttributeSet attrs) {
+    public ElementoTextoCoordenadas(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ElementoTextoContrasena(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ElementoTextoCoordenadas(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
-    public void init(Context context, AttributeSet attributeSet) {
+    public void init(final Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
 
         super.init(context, attributeSet);
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ElementoTextoContrasena, 0, 0);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ElementoTextoCoordenadas, 0, 0);
 
         try {
-            iconoOjo = a.getDrawable(R.styleable.ElementoTextoContrasena_contrasena_icono_ojo);
-            mValor = a.getString(R.styleable.ElementoTextoContrasena_contrasena_texto_valor);
-            mTitulo = a.getString(R.styleable.ElementoTextoContrasena_contrasena_texto_titulo);
-            mHint = a.getString(R.styleable.ElementoTextoContrasena_contrasena_hint_valor);
-            mVisible = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_visible, true);
-            ojoVisible = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_ojo_visible, true);
-            mVisibleValor = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_visible_valor, true);
-            mVisibleTitulo = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_visible_titulo, true);
-            mHabilitado = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_habilitado, true);
-            mHabilitadoValor = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_habilitado_valor, true);
-            mHabilitadoTitulo = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_habilitado_titulo, true);
-            mDividerVisible = a.getBoolean(R.styleable.ElementoTextoContrasena_contrasena_divider_visible, true);
-            mColorFondo = a.getColor(R.styleable.ElementoTextoContrasena_contrasena_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoTitulo = a.getColor(R.styleable.ElementoTextoContrasena_contrasena_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorFondoValor = a.getColor(R.styleable.ElementoTextoContrasena_contrasena_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
-            mColorDivider = a.getColor(R.styleable.ElementoTextoContrasena_contrasena_color_divider, getResources().getColor(R.color.colorDividerMM));
-            mColorTitulo = a.getColor(R.styleable.ElementoTextoContrasena_contrasena_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
-            mColorValor = a.getColor(R.styleable.ElementoTextoContrasena_contrasena_color_valor, getResources().getColor(R.color.colorElementoValorMM));
-            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.ElementoTextoContrasena_contrasena_tamano_titulo, 0);
-            mTamanoValor = a.getDimensionPixelSize(R.styleable.ElementoTextoContrasena_contrasena_tamano_valor, 0);
-            mAnchoTitulo = a.getFloat(R.styleable.ElementoTextoContrasena_contrasena_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
-            mAnchoValor = a.getFloat(R.styleable.ElementoTextoContrasena_contrasena_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
+            iconoMapa = a.getDrawable(R.styleable.ElementoTextoCoordenadas_coordenadas_icono_mapa);
+            mValor = a.getString(R.styleable.ElementoTextoCoordenadas_coordenadas_texto_valor);
+            mTitulo = a.getString(R.styleable.ElementoTextoCoordenadas_coordenadas_texto_titulo);
+            mHint = a.getString(R.styleable.ElementoTextoCoordenadas_coordenadas_hint_valor);
+            mVisible = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_visible, true);
+            iconoVisible = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_icono_visible, true);
+            mVisibleValor = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_visible_valor, true);
+            mVisibleTitulo = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_visible_titulo, true);
+            mHabilitado = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_habilitado, true);
+            mHabilitadoValor = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_habilitado_valor, true);
+            mHabilitadoTitulo = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_habilitado_titulo, true);
+            mDividerVisible = a.getBoolean(R.styleable.ElementoTextoCoordenadas_coordenadas_divider_visible, true);
+            mColorFondo = a.getColor(R.styleable.ElementoTextoCoordenadas_coordenadas_color_fondo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoTitulo = a.getColor(R.styleable.ElementoTextoCoordenadas_coordenadas_color_fondo_titulo, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorFondoValor = a.getColor(R.styleable.ElementoTextoCoordenadas_coordenadas_color_fondo_valor, getResources().getColor(R.color.colorElementoFondoMM));
+            mColorDivider = a.getColor(R.styleable.ElementoTextoCoordenadas_coordenadas_color_divider, getResources().getColor(R.color.colorDividerMM));
+            mColorTitulo = a.getColor(R.styleable.ElementoTextoCoordenadas_coordenadas_color_titulo, getResources().getColor(R.color.colorElementoTituloMM));
+            mColorValor = a.getColor(R.styleable.ElementoTextoCoordenadas_coordenadas_color_valor, getResources().getColor(R.color.colorElementoValorMM));
+            mTamanoTitulo = a.getDimensionPixelSize(R.styleable.ElementoTextoCoordenadas_coordenadas_tamano_titulo, 0);
+            mTamanoValor = a.getDimensionPixelSize(R.styleable.ElementoTextoCoordenadas_coordenadas_tamano_valor, 0);
+            mAnchoTitulo = a.getFloat(R.styleable.ElementoTextoCoordenadas_coordenadas_ancho_titulo, getResources().getInteger(R.integer.elementoTextoTituloPesoMM));
+            mAnchoValor = a.getFloat(R.styleable.ElementoTextoCoordenadas_coordenadas_ancho_valor, getResources().getInteger(R.integer.elementoTextoValorPesoMM));
         } finally {
             a.recycle();
         }
 
         //LayoutInflater.from(context).inflate(R.layout.my_edittext, this);
-        inflate(context, R.layout.ly_elemento_texto_contrasena, this);
+        inflate(context, R.layout.ly_elemento_texto_coordenadas, this);
 
         contenedor = findViewById(R.id.id_contenedor);
         contenedorValor = findViewById(R.id.id_contenedor_valor);
 
-        elementoOjo = findViewById(R.id.imgOjo);
+        elementoIcono = findViewById(R.id.imgIcono);
 
         contenedor.setVisibility(mVisible ? VISIBLE : GONE);
         contenedor.setBackgroundColor(mColorFondo);
@@ -100,12 +105,15 @@ public class ElementoTextoContrasena extends ElementoBase {
 
         txtValor = findViewById(R.id.id_valor_elemento);
 
-        txtValor.setTransformationMethod(new PasswordTransformationMethod());
+
         if (mValor != null){
             txtValor.setText(mValor.toString());
         }else{
             txtValor.setText("");
         }
+
+        txtValor.setEnabled(false);
+        txtValor.setKeyListener(null);
 
 
 
@@ -142,21 +150,27 @@ public class ElementoTextoContrasena extends ElementoBase {
         txtTitulo.setVisibility(mVisibleTitulo ? VISIBLE : GONE);
         txtTitulo.setEnabled(mHabilitadoTitulo);
 
-        if (iconoOjo != null){
-            elementoOjo.setImageDrawable(iconoOjo);
+        if (iconoMapa != null){
+            elementoIcono.setImageDrawable(iconoMapa);
         }
 
-        elementoOjo.setVisibility(ojoVisible ? VISIBLE : GONE);
+        elementoIcono.setVisibility(iconoVisible ? VISIBLE : GONE);
 
-        elementoOjo.setOnClickListener(new OnClickListener() {
+        elementoIcono.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!activo){
-                    txtValor.setTransformationMethod(null);
-                    activo = true;
+                if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(((Activity) mContext), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, CODE);
                 }else{
-                    txtValor.setTransformationMethod(new PasswordTransformationMethod());
-                    activo = !true;
+                    location = new SimpleLocation(mContext);
+                    if (!location.hasLocationEnabled()) {
+                        SimpleLocation.openSettings(mContext);
+                    }
+
+                    latitud = String.valueOf(location.getLatitude());
+                    longitud = String.valueOf(location.getLongitude());
+                    coordenadas = latitud.concat("; ").concat(longitud);
+                    txtValor.setText(latitud.concat("; ").concat(longitud));
                 }
             }
         });
@@ -298,7 +312,7 @@ public class ElementoTextoContrasena extends ElementoBase {
     }
 
     public ImageView getElementoOjo() {
-        return elementoOjo;
+        return elementoIcono;
     }
 
     @Override
@@ -315,4 +329,46 @@ public class ElementoTextoContrasena extends ElementoBase {
     public Object getValor() {
         return super.getValor() != null ? super.getValor() : "" ;
     }
+
+
+    private int CODE = 0;
+
+    public void setCodigoSolicitud(int cod){
+        CODE = cod;
+    }
+
+    public void metodoOnRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if(requestCode==CODE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                location = new SimpleLocation(mContext);
+                if (!location.hasLocationEnabled()) {
+                    SimpleLocation.openSettings(mContext);
+                }
+
+                latitud = String.valueOf(location.getLatitude());
+                longitud = String.valueOf(location.getLongitude());
+                coordenadas = latitud.concat("; ").concat(longitud);
+                txtValor.setText(latitud.concat("; ").concat(longitud));
+                return;
+            }
+        }
+    }
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public String getCoordenadas() {
+        return coordenadas;
+    }
+
+    public SimpleLocation getLocation() {
+        return location;
+    }
+
 }
