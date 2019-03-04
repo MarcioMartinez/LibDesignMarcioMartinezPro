@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletable
+       android:id="@+id/combo"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:texto_texto_valor=""
+       app:texto_texto_titulo="Saldo:">
+
+   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletable>
+
 
 
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoCoordenadas
@@ -180,14 +189,7 @@
        app:texto_texto_titulo="Saldo:">
 
    </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoFechaTiempo>
-   <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletable
-       android:id="@+id/combo"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:texto_texto_valor=""
-       app:texto_texto_titulo="Saldo:">
 
-   </com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoAutoCompletable>
    <com.dev.marciomartinez.libdesignmarciomartinez.ElementoTextoTodoMayuscula
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

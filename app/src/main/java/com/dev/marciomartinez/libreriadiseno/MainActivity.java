@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         x.add("daadad3");
         x.add("da4");
         x.add("daadad4");
-        e.setListadoConstruir(x, 1, R.layout.support_simple_spinner_dropdown_item);
+        e.setListadoConstruir(x, 1);
         e4.setListadoConstruir(x, android.R.layout.simple_list_item_1);
         e4.setElemento(4);
 

@@ -35,9 +35,14 @@ public class ElementoTextoAutoCompletable extends ElementoTexto {
         super.init(context, attributeSet);
     }
 
-    public ElementoTextoAutoCompletable setListadoConstruir(final List<?> list, int buscarDesde, int recursoElemento) {
+    public ElementoTextoAutoCompletable setListadoConstruir(final List<?> list, int buscarDesde) {
         this.listado = list;
-        txtValor.setAdapter(new ArrayAdapter<>(mContext, recursoElemento, listado));
+        //txtValor.setAdapter(new ArrayAdapter<>(mContext, recursoElemento, listado));
+        txtValor.setAdapter(new AdaptadorBuscadorAutoCompleteTextView(
+                mContext,
+                R.layout.autocomplete_item,
+                (List<Object>) listado
+        ));
         txtValor.setThreshold(buscarDesde);
 
         txtValor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
