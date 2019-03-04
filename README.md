@@ -23,7 +23,7 @@ dependencies {
   
   ### Ejemplos:
   #### La librería cuenta con mas de 25 Vistas con diferentes funcionalidades, algunas de ellas:
-```
+```xml
 <com.dev.marciomartinez.libdesignmarciomartinez.ElementoHeader
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -86,7 +86,7 @@ dependencies {
 ```  
 
 ### Si deseas tener una vista de manera generica, puedes usar la vista que fue desarrollada para que inyectes tu propio diseño (Vistas):
-```
+```xml
 <com.dev.marciomartinez.libdesignmarciomartinez.ElementoCustom
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
