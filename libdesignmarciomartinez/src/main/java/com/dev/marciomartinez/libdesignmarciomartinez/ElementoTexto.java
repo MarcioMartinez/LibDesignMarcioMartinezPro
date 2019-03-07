@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.KeyListener;
 import android.util.AttributeSet;
@@ -22,6 +23,7 @@ public class ElementoTexto extends ElementoBase {
     protected LinearLayout contenedor;
     protected View divider;
     protected KeyListener mKeyListerner;
+    protected boolean mMultilinea;
 
     public ElementoTexto(Context context) {
         super(context);
@@ -46,6 +48,7 @@ public class ElementoTexto extends ElementoBase {
             mTitulo = a.getString(R.styleable.ElementoTexto_texto_texto_titulo);
             mHint = a.getString(R.styleable.ElementoTexto_texto_hint_valor);
             mVisible = a.getBoolean(R.styleable.ElementoTexto_texto_visible, true);
+            mMultilinea = a.getBoolean(R.styleable.ElementoTexto_texto_multilinea_valor, true);
             mVisibleValor = a.getBoolean(R.styleable.ElementoTexto_texto_visible_valor, true);
             mVisibleTitulo = a.getBoolean(R.styleable.ElementoTexto_texto_visible_titulo, true);
             mHabilitado = a.getBoolean(R.styleable.ElementoTexto_texto_habilitado, true);
@@ -97,6 +100,12 @@ public class ElementoTexto extends ElementoBase {
         ));
         txtValor.setVisibility(mVisibleValor ? VISIBLE : GONE);
         txtValor.setEnabled(mHabilitadoValor);
+
+        if (mMultilinea){
+            txtValor.setMaxLines(10);
+            txtValor.setSingleLine(false);
+            txtValor.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        }
 
         txtTitulo = findViewById(R.id.id_titulo_elemento);
         txtTitulo.setText(mTitulo);

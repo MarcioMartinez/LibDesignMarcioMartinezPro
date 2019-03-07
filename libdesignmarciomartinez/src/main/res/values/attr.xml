@@ -21,6 +21,7 @@
         <attr name="texto_tamano_valor" format="dimension"></attr>
         <attr name="texto_ancho_titulo" format="float"></attr>
         <attr name="texto_ancho_valor" format="float"></attr>
+        <attr name="texto_multilinea_valor" format="boolean"></attr>
     </declare-styleable>
     <declare-styleable name="ElementoTextoMask">
         <attr name="mask_mascara" format="string"></attr>
