@@ -89,7 +89,7 @@ public class ElementoSwitch extends ElementoBase {
         }
 
         if (mNegativo != null){
-            txtNegativo.setHint(mNegativo.toString());
+            txtNegativo.setText(mNegativo.toString());
         }else{
             txtNegativo.setHint("");
         }
