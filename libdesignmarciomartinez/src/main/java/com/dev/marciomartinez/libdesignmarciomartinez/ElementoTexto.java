@@ -101,11 +101,7 @@ public class ElementoTexto extends ElementoBase {
         txtValor.setVisibility(mVisibleValor ? VISIBLE : GONE);
         txtValor.setEnabled(mHabilitadoValor);
 
-        if (mMultilinea){
-            txtValor.setMaxLines(10);
-            txtValor.setSingleLine(false);
-            txtValor.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-        }
+
 
         txtTitulo = findViewById(R.id.id_titulo_elemento);
         txtTitulo.setText(mTitulo);
@@ -124,6 +120,12 @@ public class ElementoTexto extends ElementoBase {
 
         mKeyListerner = txtValor.getKeyListener();
         txtValor.setMaxLines(1);
+
+        if (mMultilinea){
+            txtValor.setMaxLines(10);
+            txtValor.setSingleLine(false);
+            txtValor.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        }
         setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
