@@ -21,6 +21,6 @@ public class ElementoTextoNumeroDecimal extends ElementoTextoNormal {
     @Override
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
-        txtValor.setRawInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        txtValor.setRawInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_CLASS_NUMBER|InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
     }
 }
