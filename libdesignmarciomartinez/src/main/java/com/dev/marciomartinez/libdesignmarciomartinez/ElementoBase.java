@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 public class ElementoBase extends LinearLayout {
-
+    // ATRIBUTOS
     protected Context mContext;
     protected Object mValor;
     protected String mTitulo = "";
