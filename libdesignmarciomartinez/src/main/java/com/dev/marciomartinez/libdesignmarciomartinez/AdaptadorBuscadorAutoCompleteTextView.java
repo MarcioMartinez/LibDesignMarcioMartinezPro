@@ -85,8 +85,8 @@ public class AdaptadorBuscadorAutoCompleteTextView extends ArrayAdapter<Object> 
                 clear();
                 for (Object names : filterList) {
                     add(names);
-                    notifyDataSetChanged();
                 }
+                notifyDataSetChanged();
             }
         }
     };
