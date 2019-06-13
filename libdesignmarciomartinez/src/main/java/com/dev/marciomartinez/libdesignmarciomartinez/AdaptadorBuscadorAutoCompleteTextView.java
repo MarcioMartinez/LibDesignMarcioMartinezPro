@@ -36,11 +36,13 @@ public class AdaptadorBuscadorAutoCompleteTextView extends ArrayAdapter<Object> 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.autocomplete_item, parent, false);
         }
-        Object names = items.get(position);
+        //Object names = items.get(position);
+        Object names = getItem(position);
         if (names != null) {
             TextView lblName = (TextView) view.findViewById(R.id.lbl_name);
-            if (lblName != null)
+            if (lblName != null){
                 lblName.setText(names.toString());
+            }
         }
         return view;
     }
@@ -80,14 +82,24 @@ public class AdaptadorBuscadorAutoCompleteTextView extends ArrayAdapter<Object> 
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            List<Object> filterList = (ArrayList<Object>) results.values;
+            /*List<Object> filterList = (ArrayList<Object>) results.values;
             if (results != null && results.count > 0) {
                 clear();
                 for (Object names : filterList) {
                     add(names);
                 }
                 notifyDataSetChanged();
+            }*/
+
+            clear();
+            if (results != null && results.count > 0) {
+                // we have filtered results
+                addAll((ArrayList<Object>) results.values);
+            } else {
+                // no filter, add entire original list back in
+                addAll(items);
             }
+            notifyDataSetChanged();
         }
     };
 }
