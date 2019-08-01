@@ -27,6 +27,10 @@ public class ElementoTextoFecha extends ElementoTexto {
         super(context, attrs, defStyleAttr);
     }
 
+    public DatePickerDialog getDatePickerDialog() {
+        return mDatePickerDialog;
+    }
+
     @Override
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
