@@ -110,4 +110,10 @@ public class ElementoHeader extends ElementoBase {
         super.setColorFondo(mColorFondo);
         setBackgroundColor(this.mColorFondo);
     }
+
+    @Override
+    public void setValor(Object mValor) {
+        super.setValor(mValor);
+        txtTitulo.setText(this.mValor.toString());
+    }
 }

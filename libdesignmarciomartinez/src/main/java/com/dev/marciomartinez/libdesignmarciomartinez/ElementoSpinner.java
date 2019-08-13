@@ -205,6 +205,8 @@ public class ElementoSpinner extends ElementoBase {
                     if (escuchadorValorCambio != null){
                         escuchadorValorCambio.OnValorCambio(listado.get(i));
                     }
+                }else{
+                    setValor(null);
                 }
             }
 

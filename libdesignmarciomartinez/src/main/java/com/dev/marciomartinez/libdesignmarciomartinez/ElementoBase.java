@@ -132,4 +132,32 @@ public class ElementoBase extends LinearLayout {
     public void setOnValorCambio(EscuchadorValorCambio evento){
         escuchadorValorCambio = evento;
     }
+
+    public double valorDouble(){
+        return this.mValor == null ? null : Double.parseDouble(this.mValor.toString().trim());
+    }
+
+    public double valorFloat(){
+        return this.mValor == null ? null : Float.parseFloat(this.mValor.toString().trim());
+    }
+
+    public String valorUpperCase(){
+        return this.mValor == null ? "" : this.mValor.toString().trim().toUpperCase();
+    }
+
+    public String valorLowerCase(){
+        return this.mValor == null ? "" : this.mValor.toString().trim().toLowerCase();
+    }
+
+    public boolean valorEsNulo(){
+        return this.mValor == null;
+    }
+
+    public boolean valorNoEsNulo(){
+        return this.mValor != null;
+    }
+
+    public boolean valorEsVacio(){
+        return this.mValor.toString().trim().equals("");
+    }
 }
