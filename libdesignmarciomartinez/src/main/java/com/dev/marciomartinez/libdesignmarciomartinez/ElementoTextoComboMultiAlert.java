@@ -16,6 +16,7 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
     private List<?> listadoSeleccionados = new ArrayList<>();
     private CharSequence[] options = new CharSequence[listado.size()];
     private boolean[] optionsSelected = new boolean[listado.size()];
+    private boolean[] optionsSelected2 = new boolean[listado.size()];
     private ArrayList<Integer> mSelectedItems = new ArrayList();
 
     public ElementoTextoComboMultiAlert(Context context) {
@@ -57,12 +58,14 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
         listadoSeleccionados = new ArrayList<>();
         options = new CharSequence[listado.size()];
         optionsSelected = new boolean[listado.size()];
+        optionsSelected2 = new boolean[listado.size()];
         mSelectedItems = new ArrayList();
 
 
         for (int i = 0; i < listado.size(); i++) {
             options[i] = (CharSequence) listado.get(i).toString();
             optionsSelected[i] = false;
+            optionsSelected2[i] = false;
 
            /* if (getValor().toString().trim().contains(options[i])) {
                 optionsSelected[i] = true;
@@ -99,9 +102,14 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
 
     private AlertDialog crearAlert(String titulo, String positivoTexto, String negativoTexto ){
         mSelectedItems = new ArrayList();
-        for (int i = 0; i < optionsSelected.length; i++) {
-            if(optionsSelected[i]){
+        optionsSelected = new boolean[listado.size()];
+
+        for (int i = 0; i < optionsSelected2.length; i++) {
+            if(optionsSelected2[i]){
                 mSelectedItems.add(i);
+                optionsSelected[i] = true;
+            }else{
+                optionsSelected[i] = false;
             }
         }
         final AlertDialog dialog  = new AlertDialog.Builder(mContext)
@@ -125,14 +133,14 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
                     public void onClick(DialogInterface dialog, int id) {
                         String s = "";
                         final List<Object> seleccionados = new ArrayList<>();
-                        optionsSelected = new boolean[listado.size()];
+                        optionsSelected2 = new boolean[listado.size()];
 
-                        for(boolean o : optionsSelected){
+                        for(boolean o : optionsSelected2){
                             o = false;
                         }
 
                         for (int i = 0; i < mSelectedItems.size(); i++) {
-                            optionsSelected[mSelectedItems.get(i)] = true;
+                            optionsSelected2[mSelectedItems.get(i)] = true;
                             s += options[mSelectedItems.get(i)];
                             seleccionados.add(listado.get(i));
                             if (i < mSelectedItems.size() - 1) {
