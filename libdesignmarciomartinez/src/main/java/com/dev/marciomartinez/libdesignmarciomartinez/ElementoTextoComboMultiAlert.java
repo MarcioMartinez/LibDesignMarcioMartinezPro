@@ -54,6 +54,10 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
 
     public ElementoTextoComboMultiAlert setListadoConstruir(List<?> list, String titulo, String positivoTexto, String negativoTexto){
         this.listado = list;
+        listadoSeleccionados = new ArrayList<>();
+        options = new CharSequence[listado.size()];
+        optionsSelected = new boolean[listado.size()];
+        mSelectedItems = new ArrayList();
 
 
         for (int i = 0; i < listado.size(); i++) {
