@@ -98,7 +98,12 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
     }
 
     private AlertDialog crearAlert(String titulo, String positivoTexto, String negativoTexto ){
-        mSelectedItems = new ArrayList<>();
+        mSelectedItems = new ArrayList();
+        for (int i = 0; i < optionsSelected.length; i++) {
+            if(optionsSelected[i]){
+                mSelectedItems.add(i);
+            }
+        }
         final AlertDialog dialog  = new AlertDialog.Builder(mContext)
                 .setTitle(titulo)
                 .setMultiChoiceItems(options, optionsSelected,
@@ -121,6 +126,11 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
                         String s = "";
                         final List<Object> seleccionados = new ArrayList<>();
                         optionsSelected = new boolean[listado.size()];
+
+                        for(boolean o : optionsSelected){
+                            o = false;
+                        }
+
                         for (int i = 0; i < mSelectedItems.size(); i++) {
                             optionsSelected[mSelectedItems.get(i)] = true;
                             s += options[mSelectedItems.get(i)];
