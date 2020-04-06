@@ -52,7 +52,7 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
         this.listadoSeleccionados = listadoSeleccionados;
     }
 
-    public ElementoTextoComboMultiAlert setListadoConstruir(List<?> list, String titulo, String positivoTexto, String negativoTexto){
+    public ElementoTextoComboMultiAlert setListadoConstruir(List<?> list, final String titulo, final String positivoTexto, final String negativoTexto){
         this.listado = list;
         listadoSeleccionados = new ArrayList<>();
         options = new CharSequence[listado.size()];
@@ -71,6 +71,34 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
         }
 
         // prepare the dialog
+
+
+        txtValor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                crearAlert(titulo, positivoTexto, negativoTexto).show();
+            }
+        });
+
+        txtTitulo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                crearAlert(titulo, positivoTexto, negativoTexto).show();
+            }
+        });
+
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                crearAlert(titulo, positivoTexto, negativoTexto).show();
+            }
+        });
+
+        return this;
+    }
+
+    private AlertDialog crearAlert(String titulo, String positivoTexto, String negativoTexto ){
+        mSelectedItems = new ArrayList<>();
         final AlertDialog dialog  = new AlertDialog.Builder(mContext)
                 .setTitle(titulo)
                 .setMultiChoiceItems(options, optionsSelected,
@@ -80,7 +108,7 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
                                 if (isChecked) {
                                     // If the user checked the item, add it to the selected items
                                     mSelectedItems.add(which);
-                                    } else if (mSelectedItems.contains(which)) {
+                                } else if (mSelectedItems.contains(which)) {
                                     // Else, if the item is already in the array, remove it
                                     mSelectedItems.remove(Integer.valueOf(which));
                                 }
@@ -92,7 +120,9 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
                     public void onClick(DialogInterface dialog, int id) {
                         String s = "";
                         final List<Object> seleccionados = new ArrayList<>();
+                        optionsSelected = new boolean[listado.size()];
                         for (int i = 0; i < mSelectedItems.size(); i++) {
+                            optionsSelected[mSelectedItems.get(i)] = true;
                             s += options[mSelectedItems.get(i)];
                             seleccionados.add(listado.get(i));
                             if (i < mSelectedItems.size() - 1) {
@@ -109,29 +139,7 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
                 })
                 .setNegativeButton(negativoTexto, null)
                 .create();
-
-        txtValor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.show();
-            }
-        });
-
-        txtTitulo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.show();
-            }
-        });
-
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.show();
-            }
-        });
-
-        return this;
+        return dialog;
     }
 
     public void setElementos(List<Integer> indices){
