@@ -142,7 +142,7 @@ public class ElementoTextoComboMultiAlert extends ElementoTexto {
                         for (int i = 0; i < mSelectedItems.size(); i++) {
                             optionsSelected2[mSelectedItems.get(i)] = true;
                             s += options[mSelectedItems.get(i)];
-                            seleccionados.add(listado.get(i));
+                            seleccionados.add(listado.get(mSelectedItems.get(i)));
                             if (i < mSelectedItems.size() - 1) {
                                 s += ", ";
                             }
