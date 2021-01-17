@@ -7,8 +7,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.DatePicker;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class ElementoTextoFecha extends ElementoTexto {
@@ -29,6 +31,26 @@ public class ElementoTextoFecha extends ElementoTexto {
 
     public DatePickerDialog getDatePickerDialog() {
         return mDatePickerDialog;
+    }
+
+    public Calendar getCalendarCurrentDate() {
+        return mCalendarCurrentDate;
+    }
+
+    public String getFormato(){return dateFormat;}
+
+    public ElementoTextoFecha setFecha(String formato, String fecha) throws ParseException {
+        checkValidDateFormat(formato);
+        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat, Locale.US);
+        Date date = sdfDate.parse(fecha);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+        mCalendarCurrentDate.setTime(date);
+        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+        setValor(newValue);
+        if (escuchadorValorCambio != null){
+            escuchadorValorCambio.OnValorCambio(newValue);
+        }
+        return this;
     }
 
     @Override
@@ -82,7 +104,6 @@ public class ElementoTextoFecha extends ElementoTexto {
         });
     }
 
-
     public ElementoTextoFecha setFormatoFecha(String format) {
         checkValidDateFormat(format);
         this.dateFormat = format;
@@ -108,7 +129,8 @@ public class ElementoTextoFecha extends ElementoTexto {
         txtValor.setFocusableInTouchMode(false);
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
-        setFormatoFecha("yyyy-MM-dd");
+        setFormatoFecha(this.dateFormat);
+        /*setFormatoFecha("yyyy-MM-dd");
 
         mDatePickerDialog = new DatePickerDialog(mContext,
                 new DatePickerDialog.OnDateSetListener() {
@@ -149,6 +171,6 @@ public class ElementoTextoFecha extends ElementoTexto {
             public void onClick(View v) {
                 mDatePickerDialog.show();
             }
-        });
+        });*/
     }
 }

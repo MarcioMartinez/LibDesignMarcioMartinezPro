@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class ElementoTextoFechaTiempo extends ElementoTexto {
@@ -30,6 +32,36 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         super(context, attrs, defStyleAttr);
     }
 
+    public DatePickerDialog getDatePickerDialog() {
+        return mDatePickerDialog;
+    }
+
+    public TimePickerDialog getTimerPickerDialog() {
+        return mTimerPickerDialog;
+    }
+
+    public Calendar getCalendarCurrentDate() {
+        return mCalendarCurrentDate;
+    }
+
+    public String getFormatoFecha(){return dateFormat;}
+
+    public String getFormatoHora(){return dateFormat2;}
+
+    public ElementoTextoFechaTiempo setFechaHora(String formato, String fechaHora) throws ParseException {
+        checkValidDateFormat(formato);
+        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat, Locale.US);
+        Date date = sdfDate.parse(fechaHora);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+        mCalendarCurrentDate.setTime(date);
+        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+        setValor(newValue);
+        if (escuchadorValorCambio != null){
+            escuchadorValorCambio.OnValorCambio(newValue);
+        }
+        return this;
+    }
+
     @Override
     public void init(Context context, AttributeSet attributeSet) {
         super.init(context, attributeSet);
@@ -39,6 +71,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
         setFormatoFecha("yyyy-MM-dd");
+        setFormatoTiempo(" hh:mm a");
 
         mDatePickerDialog = new DatePickerDialog(context,
                 new DatePickerDialog.OnDateSetListener() {
@@ -53,7 +86,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                         }
 
                         if (dateFormat2.trim().equals("")){
-                            dateFormat2 = " KK:mm a";
+                            dateFormat2 = " hh:mm a";
                         }
 
                         SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
@@ -72,7 +105,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        mCalendarCurrentDate.set(Calendar.HOUR, i);
+                        mCalendarCurrentDate.set(Calendar.HOUR_OF_DAY, i);
                         mCalendarCurrentDate.set(Calendar.MINUTE, i1);
 
                         if (dateFormat.trim().equals("")){
@@ -80,7 +113,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                         }
 
                         if (dateFormat2.trim().equals("")){
-                            dateFormat2 = " KK:mm a";
+                            dateFormat2 = " hh:mm a";
                         }
 
                         SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
@@ -91,7 +124,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                         }
                     }
                 },
-                mCalendarCurrentDate.get(Calendar.HOUR),
+                mCalendarCurrentDate.get(Calendar.HOUR_OF_DAY),
                 mCalendarCurrentDate.get(Calendar.MINUTE),
                 false);
 
@@ -125,7 +158,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
             dateFormat2 = "";
         }
         if (dateFormat2.trim().equals("")){
-            dateFormat2 = " KK:mm a";
+            dateFormat2 = " hh:mm a";
         }
         SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
         String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
@@ -176,9 +209,10 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         txtValor.setFocusableInTouchMode(false);
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
-        setFormatoFecha("yyyy-MM-dd");
+        setFormatoFecha(dateFormat);
+        setFormatoTiempo(dateFormat2);
 
-        mDatePickerDialog = new DatePickerDialog(mContext,
+     /*   mDatePickerDialog = new DatePickerDialog(mContext,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -191,7 +225,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                         }
 
                         if (dateFormat2.trim().equals("")){
-                            dateFormat2 = " KK:mm a";
+                            dateFormat2 = " hh:mm a";
                         }
 
                         SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
@@ -218,7 +252,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                         }
 
                         if (dateFormat2.trim().equals("")){
-                            dateFormat2 = " KK:mm a";
+                            dateFormat2 = " hh:mm a";
                         }
 
                         SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
@@ -253,6 +287,6 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
             public void onClick(View v) {
                 mDatePickerDialog.show();
             }
-        });
+        });*/
     }
 }

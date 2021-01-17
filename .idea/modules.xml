@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LibDesignMarcioMartinezPro.iml" filepath="$PROJECT_DIR$/LibDesignMarcioMartinezPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro-app.iml" group="LibDesignMarcioMartinezPro/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MiLibreria2021-LibDesignMarcioMartinezPro.iml" filepath="$PROJECT_DIR$/.idea/modules/MiLibreria2021-LibDesignMarcioMartinezPro.iml" group="LibDesignMarcioMartinezPro" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/com.github.MarcioMartinez-libdesignmarciomartinez.iml" filepath="$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/com.github.MarcioMartinez-libdesignmarciomartinez.iml" group="LibDesignMarcioMartinezPro/libdesignmarciomartinez" />
       <module fileurl="file://$PROJECT_DIR$/libdesignmarciomartinez/libdesignmarciomartinez.iml" filepath="$PROJECT_DIR$/libdesignmarciomartinez/libdesignmarciomartinez.iml" />
     </modules>
   </component>

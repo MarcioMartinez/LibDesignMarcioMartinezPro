@@ -73,7 +73,10 @@ public class ElementoTextoAutoCompletable extends ElementoTexto {
 
     public void setElemento(int indice){
         if (this.listado.size() > 0){
-            txtValor.setSelection(indice);
+            //txtValor.setSelection(indice);
+            txtValor.clearListSelection();
+            txtValor.setText(listado.get(indice).toString(), false);
+
             setValor(listado.get(indice));
             if (escuchadorValorCambio != null){
                 escuchadorValorCambio.OnValorCambio(listado.get(indice));
