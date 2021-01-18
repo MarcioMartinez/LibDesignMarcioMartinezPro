@@ -59,6 +59,65 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         if (escuchadorValorCambio != null){
             escuchadorValorCambio.OnValorCambio(newValue);
         }
+        configurarDialog();
+        return this;
+    }
+
+    public ElementoTextoFechaTiempo configurarDialog(){
+        mDatePickerDialog = new DatePickerDialog(mContext,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        mCalendarCurrentDate.set(Calendar.YEAR, year);
+                        mCalendarCurrentDate.set(Calendar.MONTH, monthOfYear);
+                        mCalendarCurrentDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        if (dateFormat.trim().equals("")){
+                            dateFormat = "yyyy-MM-dd";
+                        }
+
+                        if (dateFormat2.trim().equals("")){
+                            dateFormat2 = " hh:mm a";
+                        }
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue);
+
+                        mTimerPickerDialog.show();
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.YEAR),
+                mCalendarCurrentDate.get(Calendar.MONTH),
+                mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));
+
+
+        mTimerPickerDialog = new TimePickerDialog(mContext,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        mCalendarCurrentDate.set(Calendar.HOUR_OF_DAY, i);
+                        mCalendarCurrentDate.set(Calendar.MINUTE, i1);
+
+                        if (dateFormat.trim().equals("")){
+                            dateFormat = "yyyy-MM-dd";
+                        }
+
+                        if (dateFormat2.trim().equals("")){
+                            dateFormat2 = " hh:mm a";
+                        }
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat + dateFormat2, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue.trim());
+                        if (escuchadorValorCambio != null){
+                            escuchadorValorCambio.OnValorCambio(newValue);
+                        }
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.HOUR_OF_DAY),
+                mCalendarCurrentDate.get(Calendar.MINUTE),
+                false);
         return this;
     }
 
@@ -73,7 +132,9 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         setFormatoFecha("yyyy-MM-dd");
         setFormatoTiempo(" hh:mm a");
 
-        mDatePickerDialog = new DatePickerDialog(context,
+        configurarDialog();
+
+       /* mDatePickerDialog = new DatePickerDialog(context,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -126,12 +187,13 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
                 },
                 mCalendarCurrentDate.get(Calendar.HOUR_OF_DAY),
                 mCalendarCurrentDate.get(Calendar.MINUTE),
-                false);
+                false);*/
 
 
         txtTitulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mDatePickerDialog.show();
             }
         });
@@ -139,6 +201,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         txtValor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mDatePickerDialog.show();
             }
         });
@@ -146,6 +209,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mDatePickerDialog.show();
             }
         });
@@ -211,6 +275,7 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
 
         setFormatoFecha(dateFormat);
         setFormatoTiempo(dateFormat2);
+        configurarDialog();
 
      /*   mDatePickerDialog = new DatePickerDialog(mContext,
                 new DatePickerDialog.OnDateSetListener() {

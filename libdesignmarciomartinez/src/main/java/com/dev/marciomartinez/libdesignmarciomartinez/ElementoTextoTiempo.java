@@ -51,19 +51,12 @@ public class ElementoTextoTiempo extends ElementoTexto {
         if (escuchadorValorCambio != null){
             escuchadorValorCambio.OnValorCambio(newValue);
         }
+        configurarDialog();
         return this;
     }
 
-    @Override
-    public void init(Context context, AttributeSet attributeSet) {
-        super.init(context, attributeSet);
-        habilitarEscritura(false);
-        txtValor.setFocusableInTouchMode(false);
-        mCalendarCurrentDate = java.util.Calendar.getInstance();
-
-        setFormatoTiempo("hh:mm a");
-
-        mTimerPickerDialog = new TimePickerDialog(context,
+    public ElementoTextoTiempo configurarDialog(){
+        mTimerPickerDialog = new TimePickerDialog(mContext,
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -81,10 +74,42 @@ public class ElementoTextoTiempo extends ElementoTexto {
                 mCalendarCurrentDate.get(Calendar.HOUR_OF_DAY),
                 mCalendarCurrentDate.get(Calendar.MINUTE),
                 false);
+        return this;
+    }
+
+    @Override
+    public void init(Context context, AttributeSet attributeSet) {
+        super.init(context, attributeSet);
+        habilitarEscritura(false);
+        txtValor.setFocusableInTouchMode(false);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+
+        setFormatoTiempo("hh:mm a");
+        configurarDialog();
+
+       /* mTimerPickerDialog = new TimePickerDialog(context,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        mCalendarCurrentDate.set(Calendar.HOUR_OF_DAY, i);
+                        mCalendarCurrentDate.set(Calendar.MINUTE, i1);
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat2, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue);
+                        if (escuchadorValorCambio != null){
+                            escuchadorValorCambio.OnValorCambio(newValue);
+                        }
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.HOUR_OF_DAY),
+                mCalendarCurrentDate.get(Calendar.MINUTE),
+                false);*/
 
         txtTitulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mTimerPickerDialog.show();
             }
         });
@@ -92,6 +117,7 @@ public class ElementoTextoTiempo extends ElementoTexto {
         txtValor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mTimerPickerDialog.show();
             }
         });
@@ -99,6 +125,7 @@ public class ElementoTextoTiempo extends ElementoTexto {
         setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mTimerPickerDialog.show();
             }
         });
@@ -130,6 +157,7 @@ public class ElementoTextoTiempo extends ElementoTexto {
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
         setFormatoTiempo("hh:mm a");
+        configurarDialog();
 
      /*   mTimerPickerDialog = new TimePickerDialog(mContext,
                 new TimePickerDialog.OnTimeSetListener() {

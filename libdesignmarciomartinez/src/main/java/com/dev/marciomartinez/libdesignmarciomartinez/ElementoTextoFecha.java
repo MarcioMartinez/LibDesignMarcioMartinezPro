@@ -50,19 +50,12 @@ public class ElementoTextoFecha extends ElementoTexto {
         if (escuchadorValorCambio != null){
             escuchadorValorCambio.OnValorCambio(newValue);
         }
+        configurarDialog();
         return this;
     }
 
-    @Override
-    public void init(Context context, AttributeSet attributeSet) {
-        super.init(context, attributeSet);
-        habilitarEscritura(false);
-        txtValor.setFocusableInTouchMode(false);
-        mCalendarCurrentDate = java.util.Calendar.getInstance();
-
-        setFormatoFecha("yyyy-MM-dd");
-
-        mDatePickerDialog = new DatePickerDialog(context,
+    public ElementoTextoFecha configurarDialog(){
+        mDatePickerDialog = new DatePickerDialog(mContext,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -81,10 +74,43 @@ public class ElementoTextoFecha extends ElementoTexto {
                 mCalendarCurrentDate.get(Calendar.YEAR),
                 mCalendarCurrentDate.get(Calendar.MONTH),
                 mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));
+        return this;
+    }
+
+    @Override
+    public void init(Context context, AttributeSet attributeSet) {
+        super.init(context, attributeSet);
+        habilitarEscritura(false);
+        txtValor.setFocusableInTouchMode(false);
+        mCalendarCurrentDate = java.util.Calendar.getInstance();
+
+        setFormatoFecha("yyyy-MM-dd");
+
+        configurarDialog();
+/*        mDatePickerDialog = new DatePickerDialog(context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        mCalendarCurrentDate.set(Calendar.YEAR, year);
+                        mCalendarCurrentDate.set(Calendar.MONTH, monthOfYear);
+                        mCalendarCurrentDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        SimpleDateFormat sdfDate = new SimpleDateFormat(dateFormat, Locale.US);
+                        String newValue = sdfDate.format(mCalendarCurrentDate.getTime());
+                        setValor(newValue);
+                        if (escuchadorValorCambio != null){
+                            escuchadorValorCambio.OnValorCambio(newValue);
+                        }
+                    }
+                },
+                mCalendarCurrentDate.get(Calendar.YEAR),
+                mCalendarCurrentDate.get(Calendar.MONTH),
+                mCalendarCurrentDate.get(Calendar.DAY_OF_MONTH));*/
 
         txtTitulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mDatePickerDialog.show();
             }
         });
@@ -92,6 +118,7 @@ public class ElementoTextoFecha extends ElementoTexto {
         txtValor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mDatePickerDialog.show();
             }
         });
@@ -99,6 +126,7 @@ public class ElementoTextoFecha extends ElementoTexto {
          setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                configurarDialog();
                 mDatePickerDialog.show();
             }
         });
@@ -130,6 +158,7 @@ public class ElementoTextoFecha extends ElementoTexto {
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
         setFormatoFecha(this.dateFormat);
+        configurarDialog();
         /*setFormatoFecha("yyyy-MM-dd");
 
         mDatePickerDialog = new DatePickerDialog(mContext,
