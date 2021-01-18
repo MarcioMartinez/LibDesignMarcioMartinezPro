@@ -156,7 +156,7 @@ public class ElementoTextoTiempo extends ElementoTexto {
         txtValor.setFocusableInTouchMode(false);
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
-        setFormatoTiempo("hh:mm a");
+        setFormatoTiempo(this.dateFormat2);
         configurarDialog();
 
      /*   mTimerPickerDialog = new TimePickerDialog(mContext,

@@ -273,8 +273,8 @@ public class ElementoTextoFechaTiempo extends ElementoTexto {
         txtValor.setFocusableInTouchMode(false);
         mCalendarCurrentDate = java.util.Calendar.getInstance();
 
-        setFormatoFecha(dateFormat);
-        setFormatoTiempo(dateFormat2);
+        setFormatoFecha(this.dateFormat);
+        setFormatoTiempo(this.dateFormat2);
         configurarDialog();
 
      /*   mDatePickerDialog = new DatePickerDialog(mContext,
