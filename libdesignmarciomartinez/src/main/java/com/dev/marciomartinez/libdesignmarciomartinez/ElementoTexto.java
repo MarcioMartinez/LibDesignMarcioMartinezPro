@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class ElementoTexto extends ElementoBase {
 
     protected AutoCompleteTextView txtValor;
@@ -238,5 +240,31 @@ public class ElementoTexto extends ElementoBase {
 
     public String getTexto(){
         return txtValor.getText().toString().trim();
+    }
+
+    public String getTextoFormatoMoneda(String formato){
+        double valor = 0;
+
+        if(txtValor.getText().toString().trim().length() > 0 && isNumericDecimal(txtValor.getText().toString().trim())){
+            valor = Double.parseDouble(txtValor.getText().toString().trim().replace(",", ""));
+        }
+
+        return new DecimalFormat(formato).format(valor);
+    }
+
+    public boolean esNumeroDecimal(){
+        return txtValor.getText().toString().trim().length() > 0 && isNumericDecimal(txtValor.getText().toString().trim());
+    }
+
+    public boolean esNumeroEntero(){
+        return txtValor.getText().toString().trim().length() > 0 && isNumericInteger(txtValor.getText().toString().trim());
+    }
+
+    public double convertirDouble(){
+        return esNumeroDecimal() ? Double.parseDouble(txtValor.getText().toString().trim()) : 0;
+    }
+
+    public double convertirIntero(){
+        return esNumeroEntero() ? Integer.parseInt(txtValor.getText().toString().trim()) : 0;
     }
 }

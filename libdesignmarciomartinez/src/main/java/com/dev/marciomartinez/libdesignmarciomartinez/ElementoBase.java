@@ -160,4 +160,28 @@ public class ElementoBase extends LinearLayout {
     public boolean valorEsVacio(){
         return this.mValor.toString().trim().equals("");
     }
+
+    public static boolean isNumericDecimal(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isNumericInteger(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
 }
