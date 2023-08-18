@@ -366,7 +366,10 @@ public class ElementoFoto extends ElementoBase {
                             try {
                                 Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
                                 Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
-                                imgFoto.setImageBitmap(miImagen);
+                                Bitmap resizedBitmap = Bitmap.createScaledBitmap(
+                                        miImagen, 1600, 2048, false);
+                                //imgFoto.setImageBitmap(miImagen);
+                                imgFoto.setImageBitmap(resizedBitmap);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -379,7 +382,10 @@ public class ElementoFoto extends ElementoBase {
                     try {
                         Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
                         Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
-                        imgFoto.setImageBitmap(miImagen);
+                        Bitmap resizedBitmap = Bitmap.createScaledBitmap(
+                                miImagen, 1600, 2048, false);
+                        //imgFoto.setImageBitmap(miImagen);
+                        imgFoto.setImageBitmap(resizedBitmap);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
