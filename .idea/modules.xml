@@ -4,7 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LibDesignMarcioMartinezPro.iml" filepath="$PROJECT_DIR$/.idea/modules/LibDesignMarcioMartinezPro.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LibDesignMarcioMartinezPro.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.iml" filepath="$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.main.iml" filepath="$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/libdesignmarciomartinez/LibDesignMarcioMartinezPro.libdesignmarciomartinez.unitTest.iml" />
     </modules>
   </component>
 </project>

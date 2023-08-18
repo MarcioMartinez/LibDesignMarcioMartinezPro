@@ -352,15 +352,38 @@ public class ElementoFoto extends ElementoBase {
 
     public void metodoOnActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == ((Activity) mContext).RESULT_OK && requestCode == PICK_IMAGE){
-            imageUri = data.getData();
-            // imgFoto.setImageURI(imageUri);
+            if(data != null){
+                if(data.getClipData() != null){
+                    int count = data.getClipData().getItemCount();
 
-            try {
-                Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
-                Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
-                imgFoto.setImageBitmap(miImagen);
-            } catch (IOException e) {
-                e.printStackTrace();
+                    if(count == 1){
+                        for(int i = 0; i < count; i++){
+                            //Uri imageUri = data.getClipData().getItemAt(i).getUri();
+
+                            imageUri = data.getClipData().getItemAt(i).getUri();
+                            // imgFoto.setImageURI(imageUri);
+
+                            try {
+                                Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
+                                Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
+                                imgFoto.setImageBitmap(miImagen);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }else if(data.getData() != null){
+                    imageUri = data.getData();
+                    // imgFoto.setImageURI(imageUri);
+
+                    try {
+                        Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
+                        Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
+                        imgFoto.setImageBitmap(miImagen);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
         }else{
@@ -453,6 +476,7 @@ public class ElementoFoto extends ElementoBase {
     private void openGallery(){
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         gallery.setType("image/");
+        gallery.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         //startActivityForResult(gallery, PICK_IMAGE);
         ((Activity) mContext).startActivityForResult(gallery.createChooser(gallery,"Seleccione la Aplicación"), PICK_IMAGE);
     }
