@@ -366,8 +366,29 @@ public class ElementoFoto extends ElementoBase {
                             try {
                                 Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
                                 Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
+
+                                //int width = 1600;
+                                //int height = 2048;
+                                /*float aspectRatio = miImagen.getWidth() /
+                                        (float) miImagen.getHeight();
+                                int width = 1000;
+                                int height = Math.round(width / aspectRatio);
+
                                 Bitmap resizedBitmap = Bitmap.createScaledBitmap(
-                                        miImagen, 1600, 2048, false);
+                                        miImagen, width, height, false);*/
+
+                                int maxHeight = 2000;
+                                int maxWidth = 2000;
+                                float scale = Math.min(((float)maxHeight / miImagen.getWidth()), ((float)maxWidth / miImagen.getHeight()));
+
+                                Matrix matrix = new Matrix();
+                                matrix.postScale(scale, scale);
+
+                                Bitmap resizedBitmap = Bitmap.createBitmap(miImagen, 0, 0, miImagen.getWidth(), miImagen.getHeight(), matrix, true);
+
+
+
+
                                 //imgFoto.setImageBitmap(miImagen);
                                 imgFoto.setImageBitmap(resizedBitmap);
                             } catch (IOException e) {
@@ -382,8 +403,18 @@ public class ElementoFoto extends ElementoBase {
                     try {
                         Bitmap Mibitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
                         Bitmap miImagen = rotateImageIfRequired(Mibitmap,mContext, imageUri);
-                        Bitmap resizedBitmap = Bitmap.createScaledBitmap(
-                                miImagen, 1600, 2048, false);
+                        /*Bitmap resizedBitmap = Bitmap.createScaledBitmap(
+                                miImagen, 1600, 2048, false);*/
+
+                        int maxHeight = 2000;
+                        int maxWidth = 2000;
+                        float scale = Math.min(((float)maxHeight / miImagen.getWidth()), ((float)maxWidth / miImagen.getHeight()));
+
+                        Matrix matrix = new Matrix();
+                        matrix.postScale(scale, scale);
+
+                        Bitmap resizedBitmap = Bitmap.createBitmap(miImagen, 0, 0, miImagen.getWidth(), miImagen.getHeight(), matrix, true);
+
                         //imgFoto.setImageBitmap(miImagen);
                         imgFoto.setImageBitmap(resizedBitmap);
                     } catch (IOException e) {
